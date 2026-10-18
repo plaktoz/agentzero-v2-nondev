@@ -1,0 +1,75 @@
+# Default Configuration for Unified Content Agent System
+
+system:
+  name: "ucas"
+  version: "0.1.0"
+  max_agents: 5
+  default_provider: "claude"
+  log_level: "INFO"
+
+providers:
+  claude:
+    enabled: true
+    model: "claude-3-5-sonnet-20241022"
+    max_tokens: 4096
+    temperature: 0.7
+    api_key_env: "ANTHROPIC_API_KEY"
+    rate_limit_delay: 0.0
+    
+  openai:
+    enabled: false  # Set to true to enable OpenAI GPT-4
+    model: "gpt-4-turbo"  # Options: gpt-4-turbo, gpt-4, gpt-3.5-turbo
+    max_tokens: 4096
+    temperature: 0.7
+    top_p: 1.0
+    frequency_penalty: 0.0
+    presence_penalty: 0.0
+    api_key_env: "OPENAI_API_KEY"
+    rate_limit_delay: 0.0
+    
+  gemini:
+    enabled: false  # Set to true to enable Google Gemini
+    model: "gemini-1.5-pro"  # Options: gemini-1.5-pro, gemini-1.5-flash, gemini-pro
+    max_tokens: 4096
+    temperature: 0.7
+    top_p: 0.95
+    top_k: 40
+    api_key_env: "GOOGLE_API_KEY"
+    rate_limit_delay: 0.0
+
+quality:
+  minimum_score: 8.0
+  fact_check_required: true
+  style_check_required: true
+  plagiarism_check_required: false
+  
+  scoring_weights:
+    accuracy: 0.3
+    clarity: 0.25
+    completeness: 0.2
+    consistency: 0.15
+    engagement: 0.1
+
+storage:
+  documents_path: "./documents"
+  knowledge_base_path: "./knowledge_base"
+  research_path: "./research"
+  drafts_path: "./drafts"
+  finals_path: "./finals"
+  
+  versioning:
+    enabled: true
+    max_versions: 10
+
+token_budget:
+  daily_limit: 100000
+  per_task_limit: 10000
+  alert_thresholds:
+    - 0.8
+    - 0.9
+    - 0.95
+
+monitoring:
+  metrics_enabled: true
+  metrics_path: "./metrics"
+  log_path: "./logs"

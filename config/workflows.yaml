@@ -1,0 +1,124 @@
+# Workflow Definitions for Different Content Types
+
+workflows:
+  blog_post:
+    name: "Blog Post"
+    description: "Engaging blog content with SEO optimization"
+    agents:
+      - researcher
+      - writer
+      - seo_specialist
+      - editor
+    steps:
+      - name: "research"
+        agent: "researcher"
+        description: "Research topic and gather sources"
+        min_sources: 5
+      - name: "draft"
+        agent: "writer"
+        description: "Write blog post draft"
+        target_words: 1000
+      - name: "seo_optimization"
+        agent: "seo_specialist"
+        description: "Optimize for search engines"
+      - name: "edit"
+        agent: "editor"
+        description: "Polish and finalize"
+    quality_checks:
+      - clarity
+      - engagement
+      - seo
+    
+  research_report:
+    name: "Research Report"
+    description: "In-depth research with citations"
+    agents:
+      - researcher
+      - data_analyst
+      - writer
+      - fact_checker
+      - editor
+    steps:
+      - name: "research"
+        agent: "researcher"
+        description: "Deep research and source gathering"
+        min_sources: 15
+      - name: "analysis"
+        agent: "data_analyst"
+        description: "Analyze findings and identify trends"
+      - name: "draft"
+        agent: "writer"
+        description: "Write comprehensive report"
+        target_words: 3000
+      - name: "fact_check"
+        agent: "fact_checker"
+        description: "Verify all claims and citations"
+      - name: "edit"
+        agent: "editor"
+        description: "Final polish"
+    quality_checks:
+      - accuracy
+      - completeness
+      - citations
+      
+  technical_docs:
+    name: "Technical Documentation"
+    description: "Clear technical documentation"
+    agents:
+      - technical_writer
+      - fact_checker
+      - editor
+    steps:
+      - name: "draft"
+        agent: "technical_writer"
+        description: "Write technical documentation"
+      - name: "fact_check"
+        agent: "fact_checker"
+        description: "Verify technical accuracy"
+      - name: "edit"
+        agent: "editor"
+        description: "Clarity and consistency check"
+    quality_checks:
+      - accuracy
+      - clarity
+      - completeness
+      
+  marketing_copy:
+    name: "Marketing Copy"
+    description: "Persuasive marketing content"
+    agents:
+      - copywriter
+      - brand_specialist
+      - editor
+    steps:
+      - name: "draft"
+        agent: "copywriter"
+        description: "Write marketing copy"
+      - name: "brand_check"
+        agent: "brand_specialist"
+        description: "Ensure brand alignment"
+      - name: "edit"
+        agent: "editor"
+        description: "Final polish"
+    quality_checks:
+      - consistency
+      - engagement
+      - brand_voice
+      
+  social_media:
+    name: "Social Media Post"
+    description: "Short-form social content"
+    agents:
+      - copywriter
+      - editor
+    steps:
+      - name: "draft"
+        agent: "copywriter"
+        description: "Write social media post"
+        target_words: 100
+      - name: "edit"
+        agent: "editor"
+        description: "Quick polish"
+    quality_checks:
+      - engagement
+      - clarity
